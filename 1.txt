@@ -1,0 +1,43 @@
+/*Задача 1
+
+Что нужно сделать
+Напишите функцию swapvec, принимающую std::vector<int> и указатель на массив
+переменных типа int (одного размера) и обменивающую значения этих массивов.*/
+
+#include <iostream>
+#include <vector>
+
+void show_vec_array(std::vector <int>& vec, int* parr) {
+
+    std::cout << "Vec " << "Array" << std::endl;
+    for (int i = 0; i < vec.size(); i++) {
+
+        std::cout << vec[i] << "     " << *(parr + i) << std::endl;
+    }
+}
+
+void swapvec(std::vector <int>& vec, int* parr) {    
+
+    for (int i = 0; i < vec.size(); i++) {
+
+        int temp = *(parr + i);
+        *(parr + i) = vec[i];
+        vec[i] = temp;
+    }
+}
+
+int main()
+{
+    std::vector<int> a = { 1,2,3,4 };
+    int b[] = { 2,4,6,8 };
+
+    show_vec_array(a, b);
+
+    swapvec(a, b);
+
+    show_vec_array(a, b);
+
+
+}
+
+

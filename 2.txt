@@ -1,0 +1,39 @@
+/*Задача 2
+
+Что нужно сделать
+Кролик сидит на нулевой ступеньке большой лестницы. Он может прыгать на 1,
+2 или 3 ступеньки вверх. Кролик хочет допрыгать до n-й ступеньки, но может
+сделать это большим количеством способов. */
+
+#include <iostream>
+
+int jamp(int n) {
+
+    if (n == 0) {
+        return 1;
+    }
+
+    int nc = 0;
+
+    for (int i = 1; i <= 3; i++) {
+
+        if (n < 0) break;
+        nc += jamp(n - i);
+        
+    }
+    return nc;
+}
+
+int main() {
+
+    int n = 0;
+
+    while (true) {
+
+        std::cout << "Enter the number of steps: ";
+        std::cin >> n;
+        std::cout << jamp(n) << std::endl;;
+    }
+}
+
+

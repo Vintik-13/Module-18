@@ -1,0 +1,34 @@
+/*Задача 4
+
+Что нужно сделать
+Напишите рекурсивную функцию, которая принимает большое число n типа long long
+и переменную ans, а возвращает void. После завершения работы функции в переменной
+ans должно оказаться количество чётных цифр в записи числа n. */
+
+#include <iostream>
+
+void evendigits(long long n, int& ans) {
+
+    if (n == 0)
+        return;
+
+    ans += (n / 10) % 2 == 0 ? 1 : 0;
+
+    n /= 10;
+    evendigits(n, ans);    
+}
+
+int main() {
+
+    int ans = 0;
+    long long n;
+
+    std::cout << "Inter number \"n:\" ";
+    std::cin >> n;
+
+    evendigits(n, ans);
+
+    std::cout << ans;
+}
+
+
